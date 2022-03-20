@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { map, Observable, tap } from 'rxjs';
 import { createThis } from 'typescript';
 import { GetDataService } from '../get-data.service';
+import { Country } from '../../Models/Country';
 
 @Component({
   selector: 'ex12-homepage',
@@ -10,7 +11,7 @@ import { GetDataService } from '../get-data.service';
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements OnInit {
-  prop!: string[];
+  prop!: [string, Country][];
   propNum = 0;
   propKeys!: string;
   ob$!: Observable<Object>;
@@ -18,8 +19,9 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDadaService.getData().subscribe((data) => {
-      this.prop = Object.keys(data);
+      this.prop = Object.entries(data);
       this.propNum = this.prop.length;
+      console.log(data);
     });
   }
 }

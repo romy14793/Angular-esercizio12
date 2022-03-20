@@ -1,7 +1,14 @@
-<h3>Ci sono {{ propNum }} proprietà</h3>
-<div class="list">
-  <ul>
-    <li *ngFor="let singleProp of prop">{{ singleProp }}</li>
-  </ul>
+<div class="wrapper">
+  <div class="list">
+    <h3>Ci sono {{ propNum }} proprietà</h3>
+    <ul>
+      <li *ngFor="let singleProp of prop">{{ singleProp[0] }}</li>
+    </ul>
+  </div>
+  <div class="data-container">
+    <h3>Apis info</h3>
+    <div class="data" *ngFor="let singleData of prop">
+      Name: {{ singleData[0] }} - Path: {{ singleData[1].Path }}
+    </div>
+  </div>
 </div>
-<div></div>
